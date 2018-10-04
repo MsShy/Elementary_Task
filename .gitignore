@@ -1,0 +1,6 @@
+### Java template
+*.class
+### JetBrains template
+*.iml
+## Directory-based project format:
+.idea/
