@@ -1,6 +1,7 @@
 package Task6;
 
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TicketManager {
@@ -13,6 +14,8 @@ public class TicketManager {
 			Scanner scanner = new Scanner(System.in);
 			System.out.println("enter min:");
 			int min = scanner.nextInt();
+
+
 			while (!checkValidation(min)) {
 				min = scanner.nextInt();
 			}
@@ -27,8 +30,8 @@ public class TicketManager {
 			} else {
 				return new Tickets(min, max);
 			}
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
+		} catch (InputMismatchException e) {
+			System.out.println("incorrect value, need number");
 		}
 		return null;
 	}

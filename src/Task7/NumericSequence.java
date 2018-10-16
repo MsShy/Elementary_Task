@@ -1,6 +1,6 @@
 package Task7;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class NumericSequence {
@@ -14,31 +14,35 @@ public class NumericSequence {
 		this.m = m;
 	}
 
-	public String countRow() {
+	public List<Integer> generateNumberSeries() {
 
-		StringBuilder builder = new StringBuilder();
+		List<Integer> numbers = new ArrayList<>();
 
-		if (checkValidation()) {
-
-			int startValue = (int) Math.ceil(Math.sqrt(m));
+		//if (checkValidation()) {
 
 			for (int i = 1; i <= n; i++) {
-				System.out.println(i);
-				if (i <= startValue) {
-					builder.append(i).append(",");
+				if (Math.pow(i, 2) < m) {
+					numbers.add(i);
 				}
 			}
 
-		} else {
-			return builder.append("incorrect").toString();
+		return numbers;
+	}
+
+	public String printNumbersSeries() {
+
+		List<Integer> numbersSeries = generateNumberSeries();
+
+		StringBuilder builder = new StringBuilder();
+		for (Integer n : numbersSeries) {
+			builder.append(n).append(",");
 		}
+
 		return builder.substring(0, builder.length() - 1);
+	//	System.makeEnvelopers.println(builder.substring(0, builder.length() - 1));
 	}
 
 
-	public boolean checkValidation() {
-		return !(n < 0 || m < 0);
-	}
 
 
 }

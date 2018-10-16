@@ -12,7 +12,16 @@ public class Envelope {
 		this.width = width;
 	}
 
-	public int compareEnvelop(Envelope envelope) {
+	public double getWidth() {
+		return width;
+	}
+
+	public double getHeight() {
+		return height;
+	}
+
+
+/*public int compareEnvelop(Envelope envelope) {
 		if (height < envelope.height && width < envelope.width) {
 			return -1;
 		} else if (height == envelope.height && width == envelope.width) {
@@ -20,26 +29,23 @@ public class Envelope {
 		}else {
 			return 1;
 		}
-	}
+	}*/
 
-	public static double checkValidation(Scanner scanner) {
+	/*public static double checkValidation(Scanner scanner) {
 
 		double side;
 		String line = scanner.nextLine();
 		try {
 			side = Double.parseDouble(line);
 		} catch (NumberFormatException e) {
-			System.out.println("incorrect");
-			printInstruction();
+			System.makeEnvelopers.println("incorrect");
+
 			return -1;
 		}
 
 		return side;
-	}
+	}*/
 
 
-	private static void printInstruction() {
-
-	}
 
 }

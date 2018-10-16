@@ -1,6 +1,6 @@
 package Task8;
 
-public class NumbersFibon {
+public class NumbersFibonacci {
 
 
 	public String generateFibonacci(int n) {
@@ -27,6 +27,8 @@ public class NumbersFibon {
 		int a = 1;
 		int b = 1;
 		int sumFibonacci;
+
+		builder.append(a).append(" ").append(b).append(" ");
 
 		for (int i = 0; i < max; i++) {
 			sumFibonacci = a + b;

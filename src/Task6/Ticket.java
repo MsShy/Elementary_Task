@@ -12,7 +12,7 @@ public class Ticket {
 
 	}
 
-	public boolean countSimple(int number) {
+	public boolean isLuckyTicketByCountSimple( int number) {
 
 		boolean luckyTicket;
 		int[] arrayOfNumbers = splitNumber(number);
@@ -30,7 +30,7 @@ public class Ticket {
 	}
 
 
-	public boolean countComplicated(int number) {
+	public boolean isLuckyTicketByCountComplicated(int number) {
 
 		boolean luckyTicket;
 

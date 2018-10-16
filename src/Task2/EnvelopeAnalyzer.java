@@ -1,64 +1,35 @@
+
 package Task2;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class EnvelopeAnalyzer {
 
 
-	public static void main(String[] args) {
+	private List<Envelope> envelopeList=new ArrayList<>(2);
 
-		boolean gh;
-		do {
-			gh = result();
-			System.out.println(gh);
-		}
-		while (gh);
-		{
-			System.out.println("exit");
-		}
-
+	public void add(Envelope envelope ) {
+		envelopeList.add(envelope);
 	}
 
-	public static boolean result() {
-		boolean toContinue = true;
-		Scanner scanner = new Scanner(System.in);
 
-		System.out.println("Input height first enveloper");
-		double height1 = Envelope.checkValidation(scanner);
-		System.out.println("Input width first enveloper");
-		double width1 = Envelope.checkValidation(scanner);
+	public boolean isFits(){
 
-		System.out.println("Input height second enveloper");
-		double height2 = Envelope.checkValidation(scanner);
-		System.out.println("Input height second enveloper");
-		double width2 = Envelope.checkValidation(scanner);
-
-		Envelope envelope1 = new Envelope(height1, width1);
-		Envelope envelope2 = new Envelope(height2, width2);
-
-		if (envelope1.compareEnvelop(envelope2) == -1) {
-			System.out.println("envelope1<envelope2");
-		} else if (envelope1.compareEnvelop(envelope2) == 0) {
-			System.out.println("envelope1==envelope2");
-		} else {
-			System.out.println("you can't put envelope1 in envelope2");
+		if((envelopeList.get(0).getHeight()<envelopeList.get(1).getHeight() &&
+				envelopeList.get(0).getWidth()<envelopeList.get(1).getWidth())||
+				(envelopeList.get(0).getWidth()<envelopeList.get(1).getHeight() &&
+				envelopeList.get(0).getHeight()<envelopeList.get(1).getWidth())){
+			return true;
 		}
-
-
-		System.out.println("Do you wanna continue. press yes or y");
-		String contin = scanner.nextLine().toLowerCase();
-		System.out.println(contin);
-		switch (contin) {
-			case ("yes"):
-			case ("y"):
-
-				break;
-			default:
-				toContinue = false;
-
-				break;
-		}
-
-		return toContinue;
+		return false;
 	}
+
+	public void removeAll(){
+
+		envelopeList.clear();
+	}
+
 }
+

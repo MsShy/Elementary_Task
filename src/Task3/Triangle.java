@@ -1,10 +1,5 @@
 package Task3;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
 public class Triangle {
 
 	public String name;
@@ -21,12 +16,12 @@ public class Triangle {
 		this.b = b;
 		this.c = c;
 //a + b > c and a + c > b and b + c > a:
-		perimetr = perimetr(a, b, c);
-		this.square = getSquare();
+		perimetr = perimeter(a, b, c);
+		square = getSquare();
 	}
 
 
-	public double perimetr(double a, double b, double c) {
+	public double perimeter(double a, double b, double c) {
 		return (this.a + this.b + this.c) / 2;
 	}
 
@@ -38,24 +33,26 @@ public class Triangle {
 
 	public String print() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("[" + name + "]:" + square + "cm");
+		builder.append("[" + name + "]:" + square + "cm\n");
 		return builder.toString();
 	}
 
-	public static Comparator<Triangle> bySquare = new Comparator<Triangle>() {
-
-		public int compare(Triangle s1, Triangle s2) {
 
 
-			return Double.compare(s1.getSquare(), s2.getSquare());
+/*	public static Comparator<Triangle> bySquare = new Comparator<Triangle>() {
+
+		public int isFits(Triangle s1, Triangle s2) {
+
+
+			return Double.isFits(s1.getSquare(), s2.getSquare());
 
 		}
-	};
+	};*/
+
 
 	@Override
 	public String toString() {
-		return "[" + name + ":]" + square + "cm" + "]";
+		return "[" + name + ":]" +String.format("%.2f", square)+ "cm";
 	}
-
 
 }

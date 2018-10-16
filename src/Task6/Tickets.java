@@ -5,18 +5,16 @@ import java.util.List;
 
 public class Tickets {
 
-	/*private int min;
-	private int max;*/
-//	Ticket ticket;
+
 	private List<Ticket> tickets;
 
 	//private int resultComplicatedMethod=findLuckyTicketsBySimpleMethod(tickets);
-	//private int resultSimpleMethod= findLuckyTicketsByComplecatedMethod(tickets);
+	//private int resultSimpleMethod= findLuckyTicketsByComplicatedMethod(tickets);
 
 	public Tickets(int min, int max) {
 		//this.min = min;
 		//this.max = max;
-		this.tickets = makeTickets(min, max);
+		tickets = makeTickets(min, max);
 
 	}
 
@@ -36,7 +34,7 @@ public class Tickets {
 		int resultSimpleMethod = 0;
 
 		for (Ticket tick : tickets) {
-			if (tick.countSimple(tick.getNumber())) {
+			if (tick.isLuckyTicketByCountSimple(tick.getNumber())) {
 				resultSimpleMethod++;
 			}
 		}
@@ -44,11 +42,11 @@ public class Tickets {
 		return resultSimpleMethod;
 	}
 
-	public int findLuckyTicketsByComplecatedMethod(List<Ticket> tickets) {
+	public int findLuckyTicketsByComplicatedMethod(List<Ticket> tickets) {
 		int resultComplicatedMethod = 0;
 
 		for (Ticket tick : tickets) {
-			if (tick.countComplicated(tick.getNumber())) {
+			if (tick.isLuckyTicketByCountComplicated(tick.getNumber())) {
 				resultComplicatedMethod++;
 			}
 		}
@@ -60,7 +58,7 @@ public class Tickets {
 
 		StringBuilder builder = new StringBuilder();
 		int resultSimpleMethod = findLuckyTicketsBySimpleMethod(tickets);
-		int resultComplicatedMethod = findLuckyTicketsByComplecatedMethod(tickets);
+		int resultComplicatedMethod = findLuckyTicketsByComplicatedMethod(tickets);
 
 		if (resultComplicatedMethod > resultSimpleMethod) {
 			builder.append("Winner-complicated method\n");
