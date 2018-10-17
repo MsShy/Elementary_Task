@@ -57,8 +57,8 @@ public class Main {
 
 
 		/*NumbersFibonacci fib = new NumbersFibonacci();
-		System.makeEnvelopers.println(fib.generateFibonacci(10));
-		System.makeEnvelopers.println(fib.generateFibonacci(1,30));
+		System.runMakeEnvelopers.println(fib.generateFibonacci(10));
+		System.runMakeEnvelopers.println(fib.generateFibonacci(1,30));
 */
 
 }

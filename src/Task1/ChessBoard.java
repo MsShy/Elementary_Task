@@ -30,22 +30,18 @@ public class ChessBoard {
 		return arr;
 	}
 
-	public void  printChessBoard(){
+	public String  printChessBoard(){
 		char[][] arr=makeBoard();
 
 		StringBuilder builder=new StringBuilder();
 
 		for (int i = 0; i < arr.length; i++) {
 			for (int j = 0; j < arr[i].length; j++) {
-				System.out.print(arr[i][j] + " ");
-
-			//	builder.append(arr[i][j]).append(" ");
+			builder.append(arr[i][j]).append(" ");
 			}
-		//	builder.append("\n");
-
-			System.out.println();
+		builder.append("\n");
 		}
-		//return builder.toString();
+		return builder.toString();
 
 	}
 

@@ -64,7 +64,7 @@ public class TriangleManager {
 		for (int i = 0; i < arrayValues.length; i++) {
 			arrayValues[i].trim();
 
-			if (arrayValues[i].isEmpty() || arrayValues[i].equals(" ")) {
+			if ( arrayValues[i].equals("")) {
 				emptyValues = true;
 			}
 

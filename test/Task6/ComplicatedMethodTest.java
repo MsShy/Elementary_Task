@@ -38,7 +38,6 @@ public class ComplicatedMethodTest {
 
 	@Test
 	public void testIsLuckyTicketByCountComplicated() {
-		System.out.println("Parameterized Number is : " + inputNumber + " " + expectedResult);
 		assertEquals(expectedResult,
 				ticket.isLuckyTicketByCountComplicated(inputNumber));
 

@@ -35,7 +35,6 @@ public class TicketManagerTest {
 	@Test
 	public void testCheckValidation() {
 
-		System.out.println("Parameterized Number is : " + inputNumber + " " + expectedResult);
 		assertEquals(expectedResult,
 				ticketManager.checkValidation(inputNumber));
 	}

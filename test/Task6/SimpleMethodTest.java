@@ -40,7 +40,6 @@ public class SimpleMethodTest {
 
 	@Test
 	public void testIsLuckyTicketByCountSimple() {
-		System.out.println("Parameterized Number is : " + inputNumber + " " + expectedResult);
 		assertEquals(expectedResult,
 				ticket.isLuckyTicketByCountSimple(inputNumber));
 	}
@@ -49,7 +48,6 @@ public class SimpleMethodTest {
 
 	@Test
 	public void testGetNumber() {
-
 		assertEquals(inputNumber,
 				ticket.getNumber());
 

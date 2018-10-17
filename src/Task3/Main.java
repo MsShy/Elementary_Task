@@ -30,13 +30,13 @@ public class Main {
 			triangles.add(triangle1);
 
 
-			//triangles.add(TriangleManager.makeEnveloper());
+			//triangles.add(TriangleManager.makeEnvelope());
 			System.out.println("Do u wanna to add next");
 			line = scanner.nextLine();
 		}
 
 		/*if(line.trim().toLowerCase().equals("yes")||line.trim().toLowerCase().equals("y")){
-			triangles.add(TriangleManager.makeEnveloper());
+			triangles.add(TriangleManager.makeEnvelope());
 		} else
 		{*/
 		triangles.sort(new SortBySquare());
@@ -53,15 +53,15 @@ public class Main {
 
 		triangles.sort(new SortBySquare());
 		//triangles.print();
-		System.makeEnvelopers.println(triangles.printTrianglesList());*/
+		System.runMakeEnvelopers.println(triangles.printTrianglesList());*/
 
 
-		//System.makeEnvelopers.println(triangle.print());
+		//System.runMakeEnvelopers.println(triangle.print());
 
 		//Collections.sort(triangles, Triangle.bySquare);
 
 		/*for (Triangle str : triangles) {
-			System.makeEnvelopers.println(str);
+			System.runMakeEnvelopers.println(str);
 		}*/
 	}
 
