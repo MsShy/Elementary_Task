@@ -1,5 +1,6 @@
 package Task8;
 
+import exception.ParameterValidateException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,8 +14,8 @@ public class NumbersFibonacciTest {
 
 
 	@Test
-	public void testGenerateFibonacci() {
-		String expectResult="1 1 2 3 5";
+	public void testGenerateFibonacci() throws ParameterValidateException {
+		String expectResult="144 233 377 610 987";
 
 
 		assertEquals(expectResult,
@@ -23,14 +24,28 @@ public class NumbersFibonacciTest {
 	}
 
 	@Test
-	public void testGenerateFibonacci1() {
+	public void testGenerateFibonacci1() throws ParameterValidateException {
 
-		String expectResult="1 1 2 3 5 8 13 21";
+		String expectResult="5";
 
 
 		assertEquals(expectResult,
-				numbersFibonacci.generateFibonacci(1,30).trim());
+				numbersFibonacci.generateFibonacci(3,7).trim());
 
 	}
-	
+
+
+	@Test(expected = ParameterValidateException.class)
+	public void testGenerateFibonacciByLengthCheckValidationExceptionL() throws ParameterValidateException {
+				numbersFibonacci.generateFibonacci(0);
+
+	}
+
+	@Test(expected = ParameterValidateException.class)
+	public void testGenerateFibonacciByIntervalCheckValidationException() throws ParameterValidateException {
+		numbersFibonacci.generateFibonacci(0,0);
+		numbersFibonacci.generateFibonacci(0,1);
+		numbersFibonacci.generateFibonacci(1,0);
+
+	}
 }

@@ -1,7 +1,9 @@
 package Task1;
 
-import java.util.InputMismatchException;
+import exception.ParameterValidateException;
+
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class ChessBoardMaker {
 
@@ -10,16 +12,16 @@ public class ChessBoardMaker {
 
 	public static void main(String[] args) {
 
-		int height = getNumber("enter height:");
-		int width = getNumber("enter width:");
 
-		if (validate(height, width)) {
-
-			ChessBoard chessBoard = new ChessBoard(height, width);
-
+		ChessBoard chessBoard = new ChessBoard();
+		try {
+			int height = getNumber("enter height:");
+			chessBoard.setHeight(height);
+			int width = getNumber("enter width:");
+			chessBoard.setWidth(width);
 			System.out.println(chessBoard.printChessBoard());
-		} else {
-			System.out.println("Not Validate");
+		} catch (ParameterValidateException e) {
+			System.out.println(e.getMessage());
 		}
 
 

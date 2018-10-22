@@ -13,6 +13,7 @@ import static org.junit.Assert.*;
 @RunWith(Parameterized.class)
 public class TicketManagerTest {
 
+
 	public int inputNumber;
 	public boolean expectedResult;
 	public TicketManager ticketManager;

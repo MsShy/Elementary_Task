@@ -1,13 +1,18 @@
 package Task3;
 
+import exception.ParameterValidateException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class TriangleTest {
+public class TriangleCalculationsTest {
 		Triangle triangle = new Triangle("Triangle1", 4, 5, 4);
+
+	public TriangleCalculationsTest() throws ParameterValidateException {
+	}
+
 	@Before
 	public void setUp() throws Exception {
 	}
@@ -18,7 +23,7 @@ public class TriangleTest {
 	}
 
 	@Test
-	public void testPerimetr() {
+	public void testPerimeter() {
 
 		double expectResult=6.5;
 

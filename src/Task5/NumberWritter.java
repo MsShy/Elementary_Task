@@ -1,93 +1,139 @@
 package Task5;
 
-public class NumberWritter {
-	private int number;
+import exception.ParameterValidateException;
+import validation.Validator;
 
-	public NumberWritter(int number) {
+import java.util.ArrayList;
+import java.util.List;
+
+public class NumberWritter {
+	private String number;
+
+	List<String> result = new ArrayList<String>();
+
+	public static final String[] THOUSANDS ={"", "одна тысяча", "две тысячи", "три тысячи", "четыре тысячи",
+			"пять тысяч", "шесть тысяч","семь тысяч","восемь тысяч", "девять тысяч"};
+
+	public static final String[] HUNDREDS = {"", "cто", "двести", "триста", "четыреста", "пятьсот", "шестьсот",
+			"семьсот", "восемьсот", "девятсот"};
+
+	public static final String[] TENS = {"", "десять", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят",
+			"семьдесят","восемьдесят", "девяносто"};
+
+	public static final String[] ONES = {"", "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять"};
+
+	public static final String[] SECOND_TEN={"", "одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать",
+			"шестнадцать", "семнадцать", "восемнадцать", "девятнадцать"};
+
+	public static final String[] UTILITY ={"тысяч"};
+
+
+	public NumberWritter(String number) {
 		this.number = number;
+
 	}
 
-	public String writeNumber() {
+	public List<String> writeNumber(String number) throws ParameterValidateException {
 
-		int[] splitNumber = splitNumber(number);
 
-		StringBuilder numberWords = new StringBuilder();
+		Validator.isAllowableLengthOfNumber(number,"number");
 
-		String[] thousands = {"одна тысяча", "две тысячи", "три тысячи", "четыре тысячи", "пять тысяч", "шесть тысяч",
-				"семь тысяч",
-				"восемь тысяч", "девять тысяч"};
-		String[] hundreds = {"cто", "двести", "триста", "четыреста", "пятьсот", "шестьсот", "семьсот",
-				"восемьсот", "девятсот"};
-		String[] tens = {"десять", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят",
-				"восемьдесят", "девяносто"};
-		String[] ten = {"одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать",
-				"шестнадцать", "семнадцать", "восемнадцать", "девятнадцать"};
-
-		String[] ones = {"один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять"};
-		String[] th = {"тысяч"};
+		int num = validateAsNumber(number);
+		int[] splitedNumber = splitNumber(num);
 
 
 		int i = 0;
-		switch (splitNumber.length) {
 
+		switch (splitedNumber.length) {
 			case 6:
-				numberWords.append(hundreds[splitNumber[i] - 1]).append(" ");
-				if(splitNumber[i+1]==0 ){
-					numberWords.append(th[0]);
-					break;
-				}
+				result.add(HUNDREDS[splitedNumber[i]]);
 				i++;
 			case 5:
-				if(splitNumber[i+1]==0 ){
-					numberWords.append(th[0]);
-					break;
-				}else if(splitNumber[i] == 1 && splitNumber[i + 1] != 0) {
-					numberWords.append(ten[splitNumber[i+1] - 1]).append(" ").append(th[0]);
+				if (splitedNumber[i] == 1 && splitedNumber[i + 1] != 0) {
+					result.add(TENS[splitedNumber[i + 1]]);
 					i++;
 
-
 				} else {
-				numberWords.append(tens[splitNumber[i] - 1]).append(" ");
-				i++;}
+					result.add(TENS[splitedNumber[i]]);
+					i++;
+				}
 
 			case 4:
-				numberWords.append(thousands[splitNumber[i] - 1]).append(" ");
-				if(splitNumber[i+1]==0 ){
-					break;
-				}
-				i++;
-			case 3:
-				numberWords.append(hundreds[splitNumber[i] - 1]).append(" ");
-				i++;
-				if (splitNumber[i] == 0 && splitNumber[i + 1] == 0) {
-					break;
-				}
-			case 2:
-				if (splitNumber[i] == 1 && splitNumber[i + 1] != 0) {
-					numberWords.append(ten[splitNumber[i] - 1]);
-					break;
-				} else if (splitNumber[i] == 0 && splitNumber[i + 1] != 0) {
-					i++;
-				} else if (splitNumber[i] == 0 && splitNumber[i + 1] == 0) {
-					break;
+
+				if (splitedNumber.length != 4 && splitedNumber[i - 1] == 1 && splitedNumber[i] != 0) {
+					result.add(UTILITY[0]);
+
+				} else if (splitedNumber.length != 4 && splitedNumber[i] == 0) {
+					result.add(UTILITY[0]);
+
 				} else {
-					numberWords.append(tens[splitNumber[i] - 1]).append(" ");
+					result.add(THOUSANDS[splitedNumber[i]]);
+				}
+				i++;
+
+			case 3:
+				result.add(HUNDREDS[splitedNumber[i]]);
+				i++;
+
+			case 2:
+				if (splitedNumber[i] == 1 && splitedNumber[i + 1] != 0) {
+					result.add(SECOND_TEN[splitedNumber[i + 1]]);
+					break;
+
+				} else {
+					result.add(TENS[splitedNumber[i]]);
 					i++;
 				}
+
 			case 1:
-				numberWords.append(ones[splitNumber[i] - 1]).append(" ");
-				break;
+				if (splitedNumber.length == 1 && splitedNumber[i] == 0) {
+					result.add("ноль");
+				} else {
+					result.add(ONES[splitedNumber[i]]);
+
+				}
+				//nol todo
+				//numberWords.append(ones[splitNumber[i]]);
+				//result[6] = ones[splitNumber[i]];
+
 		}
 
 
-		return numberWords.toString();
+		return result;
 	}
 
 
-	public void show() {
+	public String show() throws ParameterValidateException {
+		StringBuilder builder = new StringBuilder();
+		result = writeNumber(number);
+		if (result != null) {
 
-		System.out.println(writeNumber());
+
+			for (String s : result) {
+
+				if (!s.isEmpty()) {
+
+					builder.append(s).append(" ");
+				}
+			}
+		} else {
+			builder.append("can't write");
+		}
+
+
+		return builder.toString();
 	}
+
+
+	public int validateAsNumber(String input) {
+		try {
+			return Integer.parseInt(input);
+		} catch (NumberFormatException e) {
+			System.out.println("Expected a numbe,try again " + e.getMessage());
+		}
+		return -1;
+	}
+
 
 
 	public int[] splitNumber(int number) {

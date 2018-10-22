@@ -1,34 +1,44 @@
 package Task8;
 
+import exception.ParameterValidateException;
+import validation.Validator;
+
 public class NumbersFibonacci {
 
 
-	public String generateFibonacci(int n) {
+	public String generateFibonacci(int length) throws ParameterValidateException {
+		Validator.isPositive(length,"length");
 		StringBuilder builder = new StringBuilder();
 		int a = 1;
 		int b = 1;
-		int sumFibonacci;
+		int sumFibonacci=0;
 
-		builder.append(a).append(" ").append(b).append(" ");
 
-		for (int i = 0; i < n; i++) {
+		while (Integer.toString(sumFibonacci).length() <= length){
+
 			sumFibonacci = a + b;
 			a = b;
 			b = sumFibonacci;
 
-			builder.append(sumFibonacci).append(" ");
+			if (Integer.toString(sumFibonacci).length() == length) {
+
+				builder.append(sumFibonacci).append(" ");
+			}
 		}
 
-		return builder.toString();
+		return builder.toString().trim();
 	}
 
-	public String generateFibonacci(int min, int max) {
+	public String generateFibonacci(int min, int max) throws ParameterValidateException {
+		Validator.isPositive(min,"value");
+		Validator.isPositive(max,"value");
+		Validator.isEqual(min,max);
+
+
 		StringBuilder builder = new StringBuilder();
 		int a = 1;
 		int b = 1;
 		int sumFibonacci;
-
-		builder.append(a).append(" ").append(b).append(" ");
 
 		for (int i = 0; i < max; i++) {
 			sumFibonacci = a + b;
@@ -39,7 +49,7 @@ public class NumbersFibonacci {
 				builder.append(sumFibonacci).append(" ");
 			}
 		}
-		return builder.toString();
+		return builder.toString().trim();
 	}
 
 }

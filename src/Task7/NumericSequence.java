@@ -1,5 +1,8 @@
 package Task7;
 
+import exception.ParameterValidateException;
+import validation.Validator;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,8 +12,10 @@ public class NumericSequence {
 	private int n;
 	private double m;
 
-	public NumericSequence(int n, double m) {
+	public NumericSequence(int n, double m) throws ParameterValidateException {
+		Validator.isPositive(n,"value");
 		this.n = n;
+		Validator.isPositive(m,"value");
 		this.m = m;
 	}
 

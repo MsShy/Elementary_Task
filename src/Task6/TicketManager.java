@@ -5,15 +5,15 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TicketManager {
+	static int min;
 
-
-	public static Tickets initializeTickets() {
+	public static TicketsAnalyzer initializeTickets() {
 
 
 		try {
 			Scanner scanner = new Scanner(System.in);
 			System.out.println("enter min:");
-			int min = scanner.nextInt();
+			 min = scanner.nextInt();
 
 
 			while (!checkValidation(min)) {
@@ -26,9 +26,9 @@ public class TicketManager {
 			}
 
 			if (min > max) {
-				return new Tickets(max, min);
+				return new TicketsAnalyzer(max, min);
 			} else {
-				return new Tickets(min, max);
+				return new TicketsAnalyzer(min, max);
 			}
 		} catch (InputMismatchException e) {
 			System.out.println("incorrect value, need number");

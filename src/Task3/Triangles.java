@@ -1,5 +1,8 @@
 package Task3;
 
+import exception.ParameterValidateException;
+import validation.Validator;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -10,8 +13,9 @@ public class Triangles {
 
 	private List<Triangle> triangles = new ArrayList<>();
 
-	public void add(Triangle triangle) {
-		triangles.add(triangle);
+	public boolean add(Triangle triangle) throws ParameterValidateException {
+		Validator.isNull(triangle,"Triangle");
+		return triangles.add(triangle);
 	}
 
 	public void sort(Comparator<Triangle> comparator) {

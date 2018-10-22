@@ -1,33 +1,30 @@
 package Task3;
 
-import Task6.Tickets;
+import exception.ParameterValidateException;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class TriangleManager {
 	Triangles triangles = new Triangles();
+	private static Scanner scanner = null;
 
 	public static Triangle init() {
+		String line;
 
 
 		try {
 			Scanner scanner = new Scanner(System.in);
-			System.out.println("enter trianlle:");
+			System.out.println("enter trianle:");
 
-
-			String values = scanner.nextLine();
+			String values = read();
 
 			String[] arrayValues = values.split(",");
 
-
 			while (arrayValues.length != 4 ||
-					isEmpty(arrayValues) ||
-					!checkValidation(Double.parseDouble(arrayValues[1].trim()),
-							Double.parseDouble(arrayValues[2].trim()),
-							Double.parseDouble(arrayValues[3].trim()))) {
+					isEmpty(arrayValues))
+					 {
 				System.out.println("Input 4 param");
-				values = scanner.nextLine();
+				values = read();
 				arrayValues = values.split(",");
 			}
 			return new Triangle(arrayValues[0].trim(), Double.parseDouble(arrayValues[1].trim()),
@@ -38,12 +35,14 @@ public class TriangleManager {
 		} catch (NumberFormatException e) {
 			//e.printStackTrace();
 			System.out.println("jkjkj");
+		} catch (ParameterValidateException e) {
+			System.out.println(e.getMessage());
 		}
 		return null;
 	}
 
 
-	public static boolean checkValidation(double a, double b, double c) {
+/*	public static boolean checkValidation(double a, double b, double c) {
 
 		System.out.println(a + "," + b + "," + c);
 
@@ -54,7 +53,7 @@ public class TriangleManager {
 
 
 		return false;
-	}
+	}*/
 
 	public static boolean isEmpty(String[] arrayValues) {
 
@@ -72,5 +71,10 @@ public class TriangleManager {
 		return emptyValues;
 	}
 
+	public static String read() {
+		scanner = new Scanner(System.in);
+		String line = scanner.nextLine();
+		return line;
+	}
 
 }

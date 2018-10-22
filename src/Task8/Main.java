@@ -1,13 +1,16 @@
 package Task8;
 
+import exception.ParameterValidateException;
+
 import java.util.Scanner;
 
 public class Main {
 
+	private static Scanner scanner = null;
 
 	public static void main(String[] args) {
 
-		Scanner scanner = new Scanner(System.in);
+		 scanner = new Scanner(System.in);
 
 		String menu = getMenu();
 		boolean start = true;
@@ -33,28 +36,60 @@ public class Main {
 
 	private static void printFibonacciWithLength() {
 		NumbersFibonacci fib = new NumbersFibonacci();
-		System.out.println(fib.generateFibonacci(3));
+		int length=getNumber("input length");
+		try {
+			System.out.println(fib.generateFibonacci(length));
+		} catch (ParameterValidateException e) {
+			System.out.println(e.getMessage());
+		}
 
 	}
 
 	private static void printFibonacciWithInterval() {
 		NumbersFibonacci fib = new NumbersFibonacci();
-		System.out.println(fib.generateFibonacci(1,30));
+		int min=getNumber("min");
+		int max=getNumber("max");
+		try {
+			if (min > max) {
+				System.out.println(fib.generateFibonacci(max,min));
+
+			} else {
+				System.out.println(fib.generateFibonacci(min,max));
+			}
+		} catch (ParameterValidateException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 
 
 	private static String getMenu() {
 		StringBuilder builder = new StringBuilder("Menu items:").append("\n")
-				.append("1 - fib with length").append("\n")
-				.append("2 - with interval ").append("\n")
+				.append("1 - generate numbers fibonacci with length").append("\n")
+				.append("2 - generate numbers fibonacci with interval ").append("\n")
 				.append("3 - exit").append("\n")
 				.append("Select operations:");
 		return builder.toString();
 	}
 
 
+	private static int getNumber(String message) {
+		while (true) {
+			System.out.println(message);
+			final String input = read();
+			try {
+				return Integer.parseInt(input);
+			} catch (NumberFormatException e) {
+				System.out.println("Expected a numbe,try again " + e.getMessage());
+			}
+		}
+	}
 
+	public static String read() {
+		scanner = new Scanner(System.in);
+		String line = scanner.nextLine();
+		return line;
+	}
 
 		/*NumbersFibonacci fib = new NumbersFibonacci();
 		System.runMakeEnvelopers.println(fib.generateFibonacci(10));

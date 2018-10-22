@@ -3,15 +3,13 @@ package Task6;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Tickets {
+public class TicketsAnalyzer {
 
 
 	private List<Ticket> tickets;
 
-	//private int resultComplicatedMethod=findLuckyTicketsBySimpleMethod(tickets);
-	//private int resultSimpleMethod= findLuckyTicketsByComplicatedMethod(tickets);
 
-	public Tickets(int min, int max) {
+	public TicketsAnalyzer(int min, int max) {
 		//this.min = min;
 		//this.max = max;
 		tickets = makeTickets(min, max);

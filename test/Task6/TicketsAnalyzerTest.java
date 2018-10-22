@@ -10,15 +10,15 @@ import static org.junit.Assert.*;
 /**
  * Created by Администратор on 14.10.2018.
  */
-public class TicketsTest {
+public class TicketsAnalyzerTest {
 	Ticket ticket;
 
-	Tickets tickets;
+	TicketsAnalyzer ticketsAnalyzer;
 	LinkedList<Ticket> ticket1 = new LinkedList<>();
 
 	@Before
 	public void setUp() throws Exception {
-		tickets = new Tickets(400310, 400313);
+		ticketsAnalyzer = new TicketsAnalyzer(400310, 400313);
 
 		ticket1.add(ticket = new Ticket(400310));
 		ticket1.add(ticket = new Ticket(400312));
@@ -28,7 +28,7 @@ public class TicketsTest {
 
 	@Test
 	public void testMakeTickets() {
-		assertEquals(ticket1.size(), tickets.makeTickets(222222, 222224).size());
+		assertEquals(ticket1.size(), ticketsAnalyzer.makeTickets(222222, 222224).size());
 
 	}
 
@@ -38,7 +38,7 @@ public class TicketsTest {
 		int expectResult = 1;
 
 		assertEquals(expectResult,
-				tickets.findLuckyTicketsBySimpleMethod(ticket1));
+				ticketsAnalyzer.findLuckyTicketsBySimpleMethod(ticket1));
 
 
 	}
@@ -48,16 +48,16 @@ public class TicketsTest {
 		int expectResult = 1;
 
 		assertEquals(expectResult,
-				tickets.findLuckyTicketsByComplicatedMethod(ticket1));
+				ticketsAnalyzer.findLuckyTicketsByComplicatedMethod(ticket1));
 
 	}
 
 	@Test
 	public void testGetLuckyTickets() {
 		String expectResult = "No winner\n" +
-				"simple method 1 lucky tickets\n" +
-				"complicated method 1 lucky tickets";
-		assertEquals(expectResult, tickets.getLuckyTickets());
+				"simple method 1 lucky ticketsAnalyzer\n" +
+				"complicated method 1 lucky ticketsAnalyzer";
+		assertEquals(expectResult, ticketsAnalyzer.getLuckyTickets());
 
 	}
 

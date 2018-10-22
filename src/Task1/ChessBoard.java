@@ -1,15 +1,18 @@
 package Task1;
 
+import exception.ParameterValidateException;
+import validation.Validator;
+
 public class ChessBoard {
 
 	public char asterisk = '*';  //const
 	public char space = ' ';
 
 
-	private int height;
-	private int width;
+	public int height;
+	public int width;
 
-	public ChessBoard(int height, int width) {
+	public ChessBoard() {
 		this.height=height;
 		this.width=width;
 	}
@@ -44,5 +47,16 @@ public class ChessBoard {
 		return builder.toString();
 
 	}
+
+	public void setHeight(final int height) throws ParameterValidateException {
+		Validator.isPositive(height,"height of chessboard");
+		this.height = height;
+	}
+
+	public void setWidth(final int width) throws ParameterValidateException {
+		Validator.isPositive(width,"width of chessboard");
+		this.width = width;
+	}
+
 
 }

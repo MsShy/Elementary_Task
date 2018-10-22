@@ -1,6 +1,8 @@
 package Task2;
 
 import Task2.entity.Envelope;
+import exception.ParameterValidateException;
+import validation.Validator;
 
 import java.util.Scanner;
 
@@ -16,33 +18,39 @@ public class EnvelopeMaker {
 
 	private static Envelope makeEnvelope() {
 
-		double a = 0;
-		double b = 0;
 
-		do {
+		double a;
+		double b;
+
+
+		try {
 			a = getNumber("enter height envelope:");
-		}
-		while (!checkValidation(a));
 
-		do {
 			b = getNumber("enter width envelope:");
-		}
-		while (!checkValidation(b));
 
-		return new Envelope(a, b);
+			return new Envelope(a, b);
+		} catch (ParameterValidateException e) {
+			System.out.println(e.getMessage());
+		}
+		return null;
 
 	}
 
 
-	public static void runMakeEnvelopers() {
+	public static void runMakeEnvelopers() throws ParameterValidateException {
+
 
 		do {
 
 			EnvelopeAnalyzer analyzer = new EnvelopeAnalyzer();
+
 			System.out.println("Add 1st enveloper");
 			Envelope envelope1 = EnvelopeMaker.makeEnvelope();
+			//Validator.isNull(envelope1,"");
+
 			System.out.println("Add 2nd envelope");
 			Envelope envelope2 = EnvelopeMaker.makeEnvelope();
+		//	Validator.isNull(envelope1,"");
 
 			if (analyzer.isFits(envelope1, envelope2)) {
 				System.out.println("1st envelope can put into 2nd envelope");
@@ -55,17 +63,18 @@ public class EnvelopeMaker {
 		}
 		while (line.trim().equalsIgnoreCase(WORD_TO_CONTINUE) || line.trim().equalsIgnoreCase(WORD_TO_CONTINUE2));
 		System.out.println("exit");
+
 	}
 
 
 
-	private static boolean checkValidation(double value) {
+	/*private static boolean checkValidation(double value) {
 		if(value > 0){
 			return true;
 		}
 		System.out.println("number must be positive");
 		return false;
-	}
+	}*/
 
 
 	private static double getNumber(String message) {
@@ -84,7 +93,7 @@ public class EnvelopeMaker {
 
 	private static String read() {
 		scanner = new Scanner(System.in);
-		 line = scanner.nextLine();
+		line = scanner.nextLine();
 		return line;
 	}
 

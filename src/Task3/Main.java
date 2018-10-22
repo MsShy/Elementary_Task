@@ -1,38 +1,43 @@
 package Task3;
 
+import exception.ParameterValidateException;
+
 import java.util.Scanner;
 
 public class Main {
+	private static Scanner scanner = null;
 
 	//	static List<Triangle> triangles = new ArrayList<>();
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParameterValidateException {
+		String line;
 
 		Triangles triangles = new Triangles();
 
-		Triangle triangle1 = TriangleManager.init();
-		while (triangle1 == null) {
+		Triangle triangle1;
+
+		do{
+
 			triangle1 = TriangleManager.init();
 		}
+		while (triangle1 == null);
 		triangles.add(triangle1);
 
-
-		Scanner scanner = new Scanner(System.in);
 		System.out.println("Do u wanna to add next");
-		String line = scanner.nextLine();
+		line = read();
 
 		while (line.trim().toLowerCase().equals("yes") || line.trim().toLowerCase().equals("y")) {
 
-			triangle1 = TriangleManager.init();
-			while (triangle1 == null) {
+			do{
 				triangle1 = TriangleManager.init();
 			}
-			triangles.add(triangle1);
+			while (triangle1 == null);
 
+			triangles.add(triangle1);
 
 			//triangles.add(TriangleManager.makeEnvelope());
 			System.out.println("Do u wanna to add next");
-			line = scanner.nextLine();
+			line = read();
 		}
 
 		/*if(line.trim().toLowerCase().equals("yes")||line.trim().toLowerCase().equals("y")){
@@ -63,6 +68,13 @@ public class Main {
 		/*for (Triangle str : triangles) {
 			System.runMakeEnvelopers.println(str);
 		}*/
+
+	}
+
+	public static String read() {
+		scanner = new Scanner(System.in);
+		String line = scanner.nextLine();
+		return line;
 	}
 
 

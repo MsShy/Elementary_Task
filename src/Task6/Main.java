@@ -6,9 +6,9 @@ public class Main {
 	public static void main(String[] args) {
 
 
-		Tickets tickets =TicketManager.initializeTickets();
-		if (tickets!= null) {
-			System.out.println(tickets.getLuckyTickets());
+		TicketsAnalyzer ticketsAnalyzer =TicketManager.initializeTickets();
+		if (ticketsAnalyzer != null) {
+			System.out.println(ticketsAnalyzer.getLuckyTickets());
 		}
 
 	}

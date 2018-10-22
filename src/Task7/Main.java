@@ -1,10 +1,13 @@
 package Task7;
 
+import exception.ParameterValidateException;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
 
+	private static Scanner scanner = null;
 
 	public static void main(String[] args) {
 
@@ -16,22 +19,21 @@ public class Main {
 
 		try {
 			Scanner scanner = new Scanner(System.in);
-			System.out.println("input n:");
 
+			System.out.println("input n:");
 			int n = scanner.nextInt();
 
 
 			System.out.println("input m:");
 			double m = scanner.nextDouble();
-			while (!checkValidation(n, m)) {
-				System.out.println("input n:");
-				n = scanner.nextInt();
-				System.out.println("input m:");
-				m = scanner.nextInt();
-			}
 
-			NumericSequence sequence = new NumericSequence(n, m);
-			System.out.println(sequence.printNumbersSeries());
+			NumericSequence sequence = null;
+			try {
+				sequence = new NumericSequence(n, m);
+				System.out.println(sequence.printNumbersSeries());
+			} catch (ParameterValidateException e) {
+				System.out.println(e.getMessage());
+			}
 
 		} catch (InputMismatchException e) {
 			System.out.println("incorrect value, need number");
@@ -39,6 +41,9 @@ public class Main {
 		}
 
 	}
+
+
+
 
 	private static boolean checkValidation(int n, double m) {
 
