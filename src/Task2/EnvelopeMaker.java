@@ -18,7 +18,6 @@ public class EnvelopeMaker {
 
 	private static Envelope makeEnvelope() {
 
-
 		double a;
 		double b;
 
@@ -46,11 +45,11 @@ public class EnvelopeMaker {
 
 			System.out.println("Add 1st enveloper");
 			Envelope envelope1 = EnvelopeMaker.makeEnvelope();
-			//Validator.isNull(envelope1,"");
+			Validator.isNull(envelope1, "envelope1");
 
 			System.out.println("Add 2nd envelope");
 			Envelope envelope2 = EnvelopeMaker.makeEnvelope();
-		//	Validator.isNull(envelope1,"");
+			Validator.isNull(envelope1, "envelope2");
 
 			if (analyzer.isFits(envelope1, envelope2)) {
 				System.out.println("1st envelope can put into 2nd envelope");
@@ -65,16 +64,6 @@ public class EnvelopeMaker {
 		System.out.println("exit");
 
 	}
-
-
-
-	/*private static boolean checkValidation(double value) {
-		if(value > 0){
-			return true;
-		}
-		System.out.println("number must be positive");
-		return false;
-	}*/
 
 
 	private static double getNumber(String message) {

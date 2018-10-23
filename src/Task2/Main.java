@@ -11,7 +11,6 @@ public class Main {
 
 		try {
 			EnvelopeMaker.runMakeEnvelopers();
-			EnvelopeMaker.runMakeEnvelopers();
 		} catch (ParameterValidateException e) {
 			System.out.println(e.getMessage());
 		}

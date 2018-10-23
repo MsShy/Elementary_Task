@@ -3,6 +3,7 @@ package Task7;
 import exception.ParameterValidateException;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -12,20 +13,13 @@ import static org.junit.Assert.*;
 
 
 public class NumericSequenceTest {
-	NumericSequence sequence = new NumericSequence(3, 9.5);
+	private static NumericSequence sequence;
 
-	public NumericSequenceTest() throws ParameterValidateException {
+	@BeforeClass
+	public static void setUp() throws ParameterValidateException {
+		sequence = new NumericSequence(3, 9.5);
 	}
 
-	@Before
-	public void setUp() throws Exception {
-
-	}
-
-	@After
-	public void tearDown() throws Exception {
-
-	}
 
 	@Test
 	public void testGenerateNumberSeries() {

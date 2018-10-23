@@ -8,15 +8,17 @@ public class TicketsAnalyzer {
 
 	private List<Ticket> tickets;
 
+	private int min;
+	private int max;
 
 	public TicketsAnalyzer(int min, int max) {
-		//this.min = min;
-		//this.max = max;
-		tickets = makeTickets(min, max);
+		this.min = min;
+		this.max = max;
+		tickets = makeTickets();
 
 	}
 
-	public List<Ticket> makeTickets(int min, int max) {
+	public List<Ticket> makeTickets() {
 
 		LinkedList<Ticket> tickets = new LinkedList<>();
 
@@ -72,6 +74,7 @@ public class TicketsAnalyzer {
 		return builder.toString();
 
 	}
+
 
 
 }

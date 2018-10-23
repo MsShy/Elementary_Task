@@ -31,28 +31,4 @@ public class Envelope {
 		this.height = height;
 	}
 
-
-/*private boolean checkValidation(double value) {
-		if(value > 0){
-			return true;
-		}
-		System.out.println("number must be positive");
-		return false;
-	}
-
-
-	private static double getNumber(String message) {
-		while (true) {
-
-			System.out.println(message);
-			final String input = read();
-			try {
-
-				return Double.parseDouble(input);
-			} catch (NumberFormatException e) {
-				System.out.println("Expected a number,try again " + e.getMessage());
-			}
-		}
-	}*/
-
 }

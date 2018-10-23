@@ -11,35 +11,17 @@ public class Main {
 	public static void main(String[] args) throws ParameterValidateException {
 
 
-
-
+		System.out.println("Input a number (max length - 6-digit and except 0)");
 		String line = read();
-		int number;
-		if(line.matches("\\d+")) {
-			line = line.replaceAll("^0+", "");
-
-		}
-		//System.out.println(line);
-		//number= Integer.parseInt(line);
-
-		//NumberWritter numberWritter=new NumberWritter(number);
-
-		NumberWritter numberWritter=new NumberWritter(line);
-
-		System.out.println("fff"+numberWritter.show());
-
-
-		String nol="00";
-		System.out.println("parse"+Integer.parseInt(nol));
+		NumberWriter numberWriter = new NumberWriter(line);
+		System.out.println(numberWriter.printLetterNumber());
 
 	}
 
 
-
-
-		public static String read() {
-			scanner = new Scanner(System.in);
-			String line = scanner.nextLine();
-			return line;
-		}
+	public static String read() {
+		scanner = new Scanner(System.in);
+		String line = scanner.nextLine();
+		return line;
+	}
 }

@@ -39,9 +39,9 @@ public class TicketManager {
 	public static boolean checkValidation(int value) {
 
 
-		int amountOfNubers = String.valueOf(value).length();
+		int amountOfNumbers = String.valueOf(value).length();
 
-		if (value > 0 && amountOfNubers == 6) {
+		if (value > 0 && amountOfNumbers == 6) {
 			return true;
 		}
 

@@ -36,6 +36,7 @@ public class NumbersFibonacci {
 
 
 		StringBuilder builder = new StringBuilder();
+
 		int a = 1;
 		int b = 1;
 		int sumFibonacci;

@@ -33,7 +33,7 @@ public class Validator {
 
 	public static void isAllowableLengthOfNumber(final String parameter, final String message)throws ParameterValidateException {
 		if (parameter.length()>6) {
-			throw new ParameterValidateException(String.format("%s can not be NULL", message));
+			throw new ParameterValidateException(String.format("%s max 6-digit number", message));
 		}
 
 	}

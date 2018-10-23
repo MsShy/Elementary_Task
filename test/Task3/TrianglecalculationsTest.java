@@ -8,13 +8,11 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class TriangleCalculationsTest {
-		Triangle triangle = new Triangle("Triangle1", 4, 5, 4);
-
-	public TriangleCalculationsTest() throws ParameterValidateException {
-	}
+		private Triangle triangle ;
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() throws ParameterValidateException {
+		triangle= new Triangle("Triangle1", 4, 5, 4);
 	}
 
 	@After

@@ -27,16 +27,6 @@ public class ChessBoardMaker {
 
 	}
 
-	private static boolean validate(int height, int width) {
-
-		if (height > 0 && width > 0) {
-			return true;
-		}
-
-		return false;
-	}
-
-
 	private static int getNumber(String message) {
 		while (true) {
 			System.out.println(message);

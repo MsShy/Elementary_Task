@@ -3,14 +3,20 @@ package Task8;
 import exception.ParameterValidateException;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 
 public class NumbersFibonacciTest {
-	private NumbersFibonacci numbersFibonacci=new NumbersFibonacci();
+	private static NumbersFibonacci numbersFibonacci=new NumbersFibonacci();
 
+
+	@BeforeClass
+	public static void setUp()  {
+		numbersFibonacci=new NumbersFibonacci();
+	}
 
 
 	@Test

@@ -13,13 +13,13 @@ import java.util.Collection;
 import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
-public class EnvelopeCreatorCheckParameterValidateException {
+public class EnvelopeCreatorExpectValidationException {
 	
 	private double inputNumber1;
 	private double inputNumber2;
 	
 	
-	public EnvelopeCreatorCheckParameterValidateException(double inputNumber1, double inputNumber2) {
+	public EnvelopeCreatorExpectValidationException(double inputNumber1, double inputNumber2) {
 		this.inputNumber1 = inputNumber1;
 		this.inputNumber2 = inputNumber2;
 	}
@@ -31,7 +31,6 @@ public class EnvelopeCreatorCheckParameterValidateException {
 				{1, 0},
 				{0, 1},
 				{0, 0}
-
 		});
 	}
 	

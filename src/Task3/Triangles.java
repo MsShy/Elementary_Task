@@ -14,24 +14,13 @@ public class Triangles {
 	private List<Triangle> triangles = new ArrayList<>();
 
 	public boolean add(Triangle triangle) throws ParameterValidateException {
-		Validator.isNull(triangle,"Triangle");
+		Validator.isNull(triangle, "Triangle");
 		return triangles.add(triangle);
 	}
 
 	public void sort(Comparator<Triangle> comparator) {
 		Collections.sort(triangles, comparator);
 	}
-
-
-	public void print() {
-
-		int i = 1;
-		for (Triangle t : triangles) {
-			System.out.println(i + "." + t.toString());
-			i++;
-		}
-	}
-
 
 	public String printTrianglesList() {
 

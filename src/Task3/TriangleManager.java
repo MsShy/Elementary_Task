@@ -5,16 +5,14 @@ import exception.ParameterValidateException;
 import java.util.Scanner;
 
 public class TriangleManager {
-	Triangles triangles = new Triangles();
 	private static Scanner scanner = null;
 
 	public static Triangle init() {
-		String line;
 
 
 		try {
-			Scanner scanner = new Scanner(System.in);
-			System.out.println("enter trianle:");
+			 scanner = new Scanner(System.in);
+			System.out.println("enter triangle:");
 
 			String values = read();
 
@@ -23,7 +21,8 @@ public class TriangleManager {
 			while (arrayValues.length != 4 ||
 					isEmpty(arrayValues))
 					 {
-				System.out.println("Input 4 param");
+				System.out.println("Input 4 parameters with comma separated ( name of triangle, side a, side b," +
+						" side c)");
 				values = read();
 				arrayValues = values.split(",");
 			}
@@ -33,8 +32,7 @@ public class TriangleManager {
 
 
 		} catch (NumberFormatException e) {
-			//e.printStackTrace();
-			System.out.println("jkjkj");
+			System.out.println("input numbers of sides triangle");
 		} catch (ParameterValidateException e) {
 			System.out.println(e.getMessage());
 		}
@@ -42,23 +40,9 @@ public class TriangleManager {
 	}
 
 
-/*	public static boolean checkValidation(double a, double b, double c) {
-
-		System.out.println(a + "," + b + "," + c);
-
-		if (a + b > c && a + c > b && b + c > a && a > 0 && b > 0 && c > 0) {
-
-			return true;
-		}
-
-
-		return false;
-	}*/
-
-	public static boolean isEmpty(String[] arrayValues) {
+	private static boolean isEmpty(String[] arrayValues) {
 
 		boolean emptyValues = false;
-
 
 		for (int i = 0; i < arrayValues.length; i++) {
 			arrayValues[i].trim();
@@ -66,12 +50,11 @@ public class TriangleManager {
 			if ( arrayValues[i].equals("")) {
 				emptyValues = true;
 			}
-
 		}
 		return emptyValues;
 	}
 
-	public static String read() {
+	private static String read() {
 		scanner = new Scanner(System.in);
 		String line = scanner.nextLine();
 		return line;

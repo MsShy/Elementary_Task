@@ -5,16 +5,15 @@ import validation.Validator;
 
 public class ChessBoard {
 
-	public char asterisk = '*';  //const
+	public char asterisk = '*';
 	public char space = ' ';
 
-
-	public int height;
-	public int width;
+	private int height;
+	private int width;
 
 	public ChessBoard() {
-		this.height=height;
-		this.width=width;
+		this.height = height;
+		this.width = width;
 	}
 
 	private char[][] makeBoard() {
@@ -33,28 +32,28 @@ public class ChessBoard {
 		return arr;
 	}
 
-	public String  printChessBoard(){
-		char[][] arr=makeBoard();
+	public String printChessBoard() {
+		char[][] arr = makeBoard();
 
-		StringBuilder builder=new StringBuilder();
+		StringBuilder builder = new StringBuilder();
 
 		for (int i = 0; i < arr.length; i++) {
 			for (int j = 0; j < arr[i].length; j++) {
-			builder.append(arr[i][j]).append(" ");
+				builder.append(arr[i][j]);
 			}
-		builder.append("\n");
+			builder.append("\n");
 		}
 		return builder.toString();
 
 	}
 
 	public void setHeight(final int height) throws ParameterValidateException {
-		Validator.isPositive(height,"height of chessboard");
+		Validator.isPositive(height, "height of chessboard");
 		this.height = height;
 	}
 
 	public void setWidth(final int width) throws ParameterValidateException {
-		Validator.isPositive(width,"width of chessboard");
+		Validator.isPositive(width, "width of chessboard");
 		this.width = width;
 	}
 

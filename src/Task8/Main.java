@@ -10,7 +10,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		 scanner = new Scanner(System.in);
+		scanner = new Scanner(System.in);
 
 		String menu = getMenu();
 		boolean start = true;
@@ -36,7 +36,7 @@ public class Main {
 
 	private static void printFibonacciWithLength() {
 		NumbersFibonacci fib = new NumbersFibonacci();
-		int length=getNumber("input length");
+		int length = getNumber("input length");
 		try {
 			System.out.println(fib.generateFibonacci(length));
 		} catch (ParameterValidateException e) {
@@ -47,20 +47,19 @@ public class Main {
 
 	private static void printFibonacciWithInterval() {
 		NumbersFibonacci fib = new NumbersFibonacci();
-		int min=getNumber("min");
-		int max=getNumber("max");
+		int min = getNumber("min");
+		int max = getNumber("max");
 		try {
 			if (min > max) {
-				System.out.println(fib.generateFibonacci(max,min));
+				System.out.println(fib.generateFibonacci(max, min));
 
 			} else {
-				System.out.println(fib.generateFibonacci(min,max));
+				System.out.println(fib.generateFibonacci(min, max));
 			}
 		} catch (ParameterValidateException e) {
 			System.out.println(e.getMessage());
 		}
 	}
-
 
 
 	private static String getMenu() {
@@ -80,7 +79,7 @@ public class Main {
 			try {
 				return Integer.parseInt(input);
 			} catch (NumberFormatException e) {
-				System.out.println("Expected a numbe,try again " + e.getMessage());
+				System.out.println("Expected a number,try again " + e.getMessage());
 			}
 		}
 	}
@@ -91,9 +90,5 @@ public class Main {
 		return line;
 	}
 
-		/*NumbersFibonacci fib = new NumbersFibonacci();
-		System.runMakeEnvelopers.println(fib.generateFibonacci(10));
-		System.runMakeEnvelopers.println(fib.generateFibonacci(1,30));
-*/
 
 }
